@@ -8,7 +8,7 @@ const nameAsObjects = names.map((item) => {
   };
 });
 
-export default function App() {
+function App() {
   const renderName = ({ item }) => {
     return <Text style={styles.list}>{item.name}</Text>;
   };
@@ -21,6 +21,18 @@ export default function App() {
     />
   );
 };
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={App}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
