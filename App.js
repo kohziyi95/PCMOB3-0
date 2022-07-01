@@ -1,6 +1,8 @@
 
 import { StyleSheet, Text, FlatList } from "react-native";
 import { names } from "./name";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const nameAsObjects = names.map((item) => {
   return {
@@ -8,7 +10,7 @@ const nameAsObjects = names.map((item) => {
   };
 });
 
-function App() {
+function HomeScreen() {
   const renderName = ({ item }) => {
     return <Text style={styles.list}>{item.name}</Text>;
   };
@@ -28,7 +30,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={App}/>
+        <Stack.Screen name="Home" component={HomeScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
